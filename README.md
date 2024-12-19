@@ -17,7 +17,9 @@ This repository contains an intuitive and user-friendly application designed for
   - **Editing**
 
 ## Getting Started
-
+### Checkout the demo app
+[DataTool](https://datatool-app.streamlit.app)
+### Install
 1. Clone the repository:
     ```bash
     git clone https://github.com/pcastiglione99/DataTool.git
