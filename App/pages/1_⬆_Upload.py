@@ -44,7 +44,7 @@ if st.session_state['df'] is not None:
             df = df.drop(to_remove, axis=1)
             st.session_state['df'] = df
             st.dataframe(df)
-    columns = st.columns(3)
+    columns = st.columns([0.35,0.35,0.22])
     with columns[0]:
         btn_analysis = st.button('🔍 Start the analysis')
         if btn_analysis:
