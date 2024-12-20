@@ -26,7 +26,7 @@ st.write("## 📁Upload your dataset:")
 def new_file_selected():
     st.session_state['df'] = None
 
-uploaded_file = st.file_uploader("Choose a file", on_change=new_file_selected)
+uploaded_file = st.file_uploader("Choose a CSV file", on_change=new_file_selected)
 
 if st.session_state['df'] is None:
     df = read_csv(uploaded_file)
