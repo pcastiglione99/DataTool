@@ -1,6 +1,8 @@
+from numpy import select
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
+import os
 
 st.set_page_config(page_title="DataTool|Upload", 
                    page_icon="📊", 
@@ -21,12 +23,33 @@ def read_csv(uploaded_file):
         except:
             st.error("An error has occurred. Please try again", icon='🚨')
 
+@st.cache_data
+def read_csv_from_path(file_path):
+    try:
+        df = pd.read_csv(file_path, on_bad_lines='skip')
+        st.success(f"File '{file_path}' loaded successfully!", icon='✅')
+        return df
+    except:
+        st.error(f"Failed to load the file '{file_path}'. Please check its format.", icon='🚨')
+
+st.write("## 📁Upload or Choose Your Dataset:")
+
 st.write("## 📁Upload your dataset:")
 
 def new_file_selected():
     st.session_state['df'] = None
 
 uploaded_file = st.file_uploader("Choose a CSV file", on_change=new_file_selected)
+file_path = st.selectbox(label = 'Or select a sample file',
+                         options = [f for f in os.listdir('App/dataset')], 
+                         index=None)
+if st.button("Open sample file!"):
+    df = read_csv_from_path(f"App/dataset/{file_path}")
+    st.session_state['df'] = df
+
+
+def reset_df():
+    st.session_state['df'] = None
 
 if st.session_state['df'] is None:
     df = read_csv(uploaded_file)
