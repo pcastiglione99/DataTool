@@ -1,6 +1,10 @@
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://datatool-app.streamlit.app)
 # DataTool
 
+![DataTool](./datatool.gif)
+
+## Description
+
 This repository contains an intuitive and user-friendly application designed for exploring, analyzing, and enhancing datasets through newly identified metrics. Built using **Streamlit**, this interactive tool provides a streamlined workflow for evaluating data quality, editing datasets, and generating actionable insights during the data preparation phase.
 
 ## Features
